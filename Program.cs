@@ -1,5 +1,6 @@
 ﻿using CipherSuite.AlphabetGeneration;
 using CipherSuite.CipherHandling;
+using CipherSuite.KeyGeneration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

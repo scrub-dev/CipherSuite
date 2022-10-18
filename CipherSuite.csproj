@@ -60,6 +60,9 @@
     <Compile Include="frm_main.Designer.cs">
       <DependentUpon>frm_main.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeyGeneration\Key.cs" />
+    <Compile Include="KeyGeneration\KeyFactory.cs" />
+    <Compile Include="KeyGeneration\KeyVigenere.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm_main.resx">
@@ -88,7 +91,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="KeyGeneration\" />
     <Folder Include="RuleEngine\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
