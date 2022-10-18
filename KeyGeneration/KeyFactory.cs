@@ -8,5 +8,16 @@ namespace CipherSuite.KeyGeneration
 {
     internal class KeyFactory
     {
+        public Key generate_key(string key_value, Key.TYPE type)
+        {
+            Key return_key = null;
+            switch (type)
+            {
+                case Key.TYPE.VIGENERE:
+                    return_key = new KeyVigenere(key_value);
+                    break;
+            }
+            return return_key;
+        }
     }
 }

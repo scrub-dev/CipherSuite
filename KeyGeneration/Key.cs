@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CipherSuite.KeyGeneration
 {
-    internal abstract class Key
+    internal class Key
     {
         public enum TYPE
         {
