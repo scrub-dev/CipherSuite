@@ -20,7 +20,7 @@ namespace CipherSuite
             Cipher c = new Cipher();
             Decipher d = new Decipher();
 
-            Key k = new KeyVigenere("LEMONS");
+            Key k = KeyFactory.generate_key("LEMON", Key.TYPE.VIGENERE);
             string out1 = c.vigenere(k, "HELLO WORLD");
             string out2 = d.vigenere(k, "SIXZB HSDZQ");
 
