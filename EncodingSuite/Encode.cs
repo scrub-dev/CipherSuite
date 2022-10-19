@@ -13,7 +13,7 @@ namespace CipherSuite.EncodingSuite
             string outputString = string.Empty;
             if (from.Equals(EncodingSuite.TYPE.UTF8))
             {
-                byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input);
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
                 outputString = Convert.ToBase64String(bytes);
             }
             return outputString;

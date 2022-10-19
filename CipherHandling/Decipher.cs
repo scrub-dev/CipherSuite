@@ -16,7 +16,7 @@ namespace CipherSuite.CipherHandling
     {
         private static readonly Regex whitespaces = new Regex(@"\s+");
 
-        public string caeser(Alphabet alphabet, string input)
+        public static string caeser(Alphabet alphabet, string input)
         {
             string result = "";
             foreach (char x in input){
@@ -26,7 +26,11 @@ namespace CipherSuite.CipherHandling
             }
             return result;
         }
-        public string vigenere(Key key, string input)
+        public static string vigenere(Key key, string input)
+        {
+            return vigenere(key, input, CipherSuite.VIGENERE_MODE.DECRYPT);
+        }
+        public static string vigenere(Key key, string input, CipherSuite.VIGENERE_MODE vigenere_mode)
         {
             ArrayList result = new ArrayList();
             ArrayList space_indecies = new ArrayList();
@@ -41,7 +45,14 @@ namespace CipherSuite.CipherHandling
             for(int i = 0; i < modified_input.Length; i++)
             {
                 Alphabet a = AlphabetFactory.generate_alphabet(new string[] {Alphabet.uppercase_characters}, key.getCharAt(i) - 65);
-                result.Add(this.caeser(a, char.ToString(modified_input.ToUpper()[i])));
+                if (vigenere_mode.Equals(CipherSuite.VIGENERE_MODE.ENCRYPT))
+                {
+                    result.Add(Cipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
+                }
+                else if(vigenere_mode.Equals(CipherSuite.VIGENERE_MODE.DECRYPT))
+                {
+                    result.Add(Decipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
+                }
             }
 
             if(space_indecies.Count > 0)

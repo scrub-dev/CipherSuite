@@ -17,7 +17,11 @@ namespace CipherSuite.CipherHandling
             CEASER,
             VIGENERE
         }
-
+        public enum VIGENERE_MODE
+        {
+            ENCRYPT,
+            DECRYPT
+        }
         public CipherSuite() { }
         public static string CharListToString(ArrayList input)
         {
