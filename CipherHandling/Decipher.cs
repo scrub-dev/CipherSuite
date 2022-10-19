@@ -45,24 +45,15 @@ namespace CipherSuite.CipherHandling
             for(int i = 0; i < modified_input.Length; i++)
             {
                 Alphabet a = AlphabetFactory.generate_alphabet(new string[] {Alphabet.uppercase_characters}, key.getCharAt(i) - 65);
-                if (vigenere_mode.Equals(CipherSuite.MODE.ENCRYPT))
-                {
-                    result.Add(Cipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
-                }
-                else if(vigenere_mode.Equals(CipherSuite.MODE.DECRYPT))
-                {
-                    result.Add(Decipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
-                }
+                if (vigenere_mode.Equals(CipherSuite.MODE.ENCRYPT)) result.Add(Cipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
+                else if(vigenere_mode.Equals(CipherSuite.MODE.DECRYPT)) result.Add(Decipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
             }
 
             if(space_indecies.Count > 0)
             {
                 for(int i = 0; i < input.Length; i++)
                 {
-                    if (space_indecies.Contains(i))
-                    {
-                        result.Insert(i, ' ');
-                    }
+                    if (space_indecies.Contains(i)) result.Insert(i, ' ');
                 }
             }
             return CipherSuite.CharListToString(result);
