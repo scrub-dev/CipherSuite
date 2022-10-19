@@ -10,9 +10,11 @@ namespace CipherSuite.EncodingSuite
     {
         public enum TYPE
         {
+            UTF8,
             BASE_64,
             HEXIDECIMAL,
-            URI_ENCODING
+            URI_ENCODING,
+            BINARY
         }
     }
 }
