@@ -15,7 +15,7 @@ namespace CipherSuite.EncodingSuite
 
             switch(to){
                 case EncodingSuite.TYPE.UTF8:
-                    outputString = System.Text.Encoding.UTF8.GetString(bytes);
+                    outputString = Encoding.UTF8.GetString(bytes);
                     break;
                 case EncodingSuite.TYPE.HEXIDECIMAL:
                     break;

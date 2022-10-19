@@ -17,12 +17,9 @@ namespace CipherSuite
         [STAThread]
         static void Main()
         {
-            Cipher c = new Cipher();
-            Decipher d = new Decipher();
-
             Key k = KeyFactory.generate_key("LEMON", Key.TYPE.VIGENERE);
-            string out1 = c.vigenere(k, "HELLO WORLD");
-            string out2 = d.vigenere(k, "SIXZB HSDZQ");
+            string out1 = Cipher.vigenere(k, "HELLO WORLD");
+            string out2 = Decipher.vigenere(k, "SIXZB HSDZQ");
 
             Console.WriteLine(out1);
             Console.WriteLine(out2);

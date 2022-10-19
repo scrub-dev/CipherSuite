@@ -11,7 +11,7 @@ namespace CipherSuite.CipherHandling
 {
     internal class Cipher
     {
-        public string caeser(Alphabet alphabet, string input)
+        public static string caeser(Alphabet alphabet, string input)
         {
             string result = "";
             foreach (char x in input)
@@ -22,36 +22,9 @@ namespace CipherSuite.CipherHandling
             }
             return result;
         }
-        public string vigenere(Key key, string input)
+        public static string vigenere(Key key, string input)
         {
-            ArrayList result = new ArrayList();
-            ArrayList space_indecies = new ArrayList();
-
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (input[i] == ' ') space_indecies.Add(i);
-            }
-
-            string modified_input = CipherSuite.whitespaceRegex.Replace(input, "");
-
-            for (int i = 0; i < modified_input.Length; i++)
-            {
-                Alphabet a = AlphabetFactory.generate_alphabet(new string[] { Alphabet.uppercase_characters }, key.getCharAt(i) - 65);
-                result.Add(this.caeser(a, char.ToString(modified_input.ToUpper()[i])));
-            }
-
-            if (space_indecies.Count > 0)
-            {
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (space_indecies.Contains(i))
-                    {
-                        result.Insert(i, ' ');
-                    }
-                }
-            }
-
-            return CipherSuite.CharListToString(result);
+            return Decipher.vigenere(key, input, CipherSuite.VIGENERE_MODE.ENCRYPT);
         }
     }
 }
