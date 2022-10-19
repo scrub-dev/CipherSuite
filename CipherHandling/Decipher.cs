@@ -28,9 +28,9 @@ namespace CipherSuite.CipherHandling
         }
         public static string vigenere(Key key, string input)
         {
-            return vigenere(key, input, CipherSuite.VIGENERE_MODE.DECRYPT);
+            return vigenere(key, input, CipherSuite.MODE.DECRYPT);
         }
-        public static string vigenere(Key key, string input, CipherSuite.VIGENERE_MODE vigenere_mode)
+        public static string vigenere(Key key, string input, CipherSuite.MODE vigenere_mode)
         {
             ArrayList result = new ArrayList();
             ArrayList space_indecies = new ArrayList();
@@ -45,11 +45,11 @@ namespace CipherSuite.CipherHandling
             for(int i = 0; i < modified_input.Length; i++)
             {
                 Alphabet a = AlphabetFactory.generate_alphabet(new string[] {Alphabet.uppercase_characters}, key.getCharAt(i) - 65);
-                if (vigenere_mode.Equals(CipherSuite.VIGENERE_MODE.ENCRYPT))
+                if (vigenere_mode.Equals(CipherSuite.MODE.ENCRYPT))
                 {
                     result.Add(Cipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
                 }
-                else if(vigenere_mode.Equals(CipherSuite.VIGENERE_MODE.DECRYPT))
+                else if(vigenere_mode.Equals(CipherSuite.MODE.DECRYPT))
                 {
                     result.Add(Decipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
                 }

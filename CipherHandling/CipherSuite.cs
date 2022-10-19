@@ -17,7 +17,7 @@ namespace CipherSuite.CipherHandling
             CEASER,
             VIGENERE
         }
-        public enum VIGENERE_MODE
+        public enum MODE
         {
             ENCRYPT,
             DECRYPT

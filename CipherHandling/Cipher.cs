@@ -24,7 +24,7 @@ namespace CipherSuite.CipherHandling
         }
         public static string vigenere(Key key, string input)
         {
-            return Decipher.vigenere(key, input, CipherSuite.VIGENERE_MODE.ENCRYPT);
+            return Decipher.vigenere(key, input, CipherSuite.MODE.ENCRYPT);
         }
     }
 }
