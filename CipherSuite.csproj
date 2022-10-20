@@ -51,6 +51,7 @@
     <Compile Include="CipherHandling\Cipher.cs" />
     <Compile Include="CipherHandling\CipherSuite.cs" />
     <Compile Include="CipherHandling\Decipher.cs" />
+    <Compile Include="Crypto\CryptoProvider.cs" />
     <Compile Include="EncodingSuite\Decode.cs" />
     <Compile Include="EncodingSuite\Encode.cs" />
     <Compile Include="EncodingSuite\EncodingSuite.cs" />
