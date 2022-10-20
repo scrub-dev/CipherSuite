@@ -9,12 +9,14 @@ namespace CipherSuite.Crypto
 {
     internal class CryptoProvider
     {
-        public static byte[] RandomBytes(int length)
+        public static byte[] SecureRandomBytes(int length)
         {
-            byte[] bytes = new byte[length];
-            RandomNumberGenerator rng = RandomNumberGenerator.Create();
-            rng.GetBytes(bytes, 0 ,length);
-            return bytes;
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                byte[] x = new byte[length];
+                rng.GetBytes(x);
+                return x;
+            }
         }
         public static string ByteArrayToString(byte[] byte_array)
         {
@@ -27,7 +29,7 @@ namespace CipherSuite.Crypto
         }
         public static void RandomByteString(int length, out string output)
         {
-            output = ByteArrayToString(RandomBytes(length));
+            output = ByteArrayToString(SecureRandomBytes(length));
         }
         public static void RandomCharString(int length, out string output)
         {
@@ -37,24 +39,22 @@ namespace CipherSuite.Crypto
                 output += SecureRandomChar();
             }
         }
-        public static uint SecureRandomNumber()
+        public static uint SecureRandomUint32()
         {
-            using(RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
-            {
-                byte[] x = new byte[4];
-                rng.GetBytes(x);
-                //return (int)BitConverter.ToInt32(x, 0);
-                return BitConverter.ToUInt32(x, 0);
-            }
+            return BitConverter.ToUInt32(SecureRandomBytes(4), 0);
+        }
+        public static int SecureRandomInt32()
+        {
+            return BitConverter.ToInt32(SecureRandomBytes(4), 0);
         }
         public static char SecureRandomChar()
         {
-            return (char) (65 + (SecureRandomNumber() % 26) + (RandomBool() ? 32 : 0));
+            return (char) (65 + (SecureRandomUint32() % 26) + (RandomBool() ? 32 : 0));
         }
 
         public static bool RandomBool()
         {
-            return new Random().NextDouble() > 0.5;
+            return SecureRandomInt32() > 0;
         }
     }
 }
