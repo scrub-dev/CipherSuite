@@ -58,5 +58,10 @@ namespace CipherSuite.CipherHandling
             }
             return CipherSuite.CharListToString(result);
         }
+        public static string autokey(Key key, string input)
+        {
+            key.Value += input.ToUpper();
+            return vigenere(key, input);
+        }
     }
 }

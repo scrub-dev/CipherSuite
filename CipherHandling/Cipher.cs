@@ -24,6 +24,11 @@ namespace CipherSuite.CipherHandling
         }
         public static string vigenere(Key key, string input)
         {
+            return Decipher.vigenere(key, input.ToUpper(), CipherSuite.MODE.ENCRYPT);
+        }
+        public static string autokey(Key key, string input)
+        {
+            key.Value += input.ToUpper();
             return Decipher.vigenere(key, input, CipherSuite.MODE.ENCRYPT);
         }
     }
