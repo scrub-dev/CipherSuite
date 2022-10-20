@@ -1,9 +1,11 @@
 ﻿using CipherSuite.AlphabetGeneration;
 using CipherSuite.CipherHandling;
+using CipherSuite.Crypto;
 using CipherSuite.KeyGeneration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +25,8 @@ namespace CipherSuite
 
             Console.WriteLine(out1);
             Console.WriteLine(out2);
+            CryptoProvider.RandomCharString(10, out string out3);
+            Console.WriteLine(out3);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
