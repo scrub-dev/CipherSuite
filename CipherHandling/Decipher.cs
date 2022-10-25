@@ -46,7 +46,7 @@ namespace CipherSuite.CipherHandling
             {
                 Alphabet a = AlphabetFactory.generate_alphabet(new string[] {Alphabet.uppercase_characters}, key.getCharAt(i) - 65);
                 if (vigenere_mode.Equals(CipherSuite.MODE.ENCRYPT)) result.Add(Cipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
-                else if(vigenere_mode.Equals(CipherSuite.MODE.DECRYPT)) result.Add(Decipher.caeser(a, char.ToString(modified_input.ToUpper()[i])));
+                else if(vigenere_mode.Equals(CipherSuite.MODE.DECRYPT)) result.Add(caeser(a, char.ToString(modified_input.ToUpper()[i])));
             }
 
             if(space_indecies.Count > 0)
@@ -58,10 +58,16 @@ namespace CipherSuite.CipherHandling
             }
             return CipherSuite.CharListToString(result);
         }
-        public static string autokey(Key key, string input)
+        public static string substitution(Key k, string input)
         {
-            key.Value += input.ToUpper();
-            return vigenere(key, input);
+            string result = "";
+            foreach (char x in input)
+            {
+                int char_index = k.Value.IndexOf(x);
+                if (!char_index.Equals(-1)) result += Alphabet.uppercase_characters[char_index];
+                else result += x;
+            }
+            return result;
         }
     }
 }

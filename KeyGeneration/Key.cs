@@ -8,7 +8,8 @@ namespace CipherSuite.KeyGeneration
     {
         public enum TYPE
         {
-            VIGENERE
+            VIGENERE,
+            SUBSTITUTION
         }
         public enum PROPERTY
         {

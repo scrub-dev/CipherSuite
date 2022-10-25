@@ -26,10 +26,16 @@ namespace CipherSuite.CipherHandling
         {
             return Decipher.vigenere(key, input.ToUpper(), CipherSuite.MODE.ENCRYPT);
         }
-        public static string autokey(Key key, string input)
+        public static string substitution(Key k, string input)
         {
-            key.Value += input.ToUpper();
-            return Decipher.vigenere(key, input, CipherSuite.MODE.ENCRYPT);
+            string result = "";
+            foreach (char x in input.ToUpper())
+            {
+                int char_index = Alphabet.uppercase_characters.IndexOf(x);
+                if (!char_index.Equals(-1)) result += k.Value.ToUpper()[char_index];
+                else result += x;
+            }
+            return result;
         }
     }
 }

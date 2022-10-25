@@ -14,7 +14,7 @@ namespace CipherSuite.Crypto
                 return x;
             }
         }
-        public static string ByteArrayToString(byte[] byte_array)
+        private static string ByteArrayToString(byte[] byte_array)
         {
             string output = String.Empty;
             foreach(byte b in byte_array)

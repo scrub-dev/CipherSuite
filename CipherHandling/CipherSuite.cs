@@ -9,7 +9,7 @@ namespace CipherSuite.CipherHandling
         public static readonly Regex whitespaceRegex = new Regex(@"\s+");
         public enum CIPHER_TYPE
         {
-            CEASER, VIGENERE
+            CEASER, VIGENERE, AUTO_KEY
         }
         public enum MODE
         {

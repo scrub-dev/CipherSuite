@@ -17,6 +17,9 @@ namespace CipherSuite.KeyGeneration
                     return_key = new Key(key_value);
                     return_key.addProperty(Key.PROPERTY.LOOP_TO_INPUT_LENGTH);
                     break;
+                case Key.TYPE.SUBSTITUTION:
+                    return_key = new Key(key_value);
+                    break;
             }
             return return_key;
         }

@@ -20,18 +20,8 @@ namespace CipherSuite
         static void Main()
         {
             // TODO:
-            // AutoKey Cipher
             // Bitwise Rule Engine
             //  > Define which ciphers require fields, keys, alphabets, offsets etc.
-            Key k = KeyFactory.generate_key("LEMON", Key.TYPE.VIGENERE);
-            string out1 = Cipher.vigenere(k, "HELLO WORLD");
-            string out2 = Decipher.vigenere(k, "SIXZB HSDZQ");
-
-            Console.WriteLine(out1);
-            Console.WriteLine(out2);
-            CryptoProvider.RandomCharString(10, out string out3);
-            Console.WriteLine(out3);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_main());
